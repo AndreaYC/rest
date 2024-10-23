@@ -1,3 +1,4 @@
+
 package rest
 
 import (
@@ -227,6 +228,7 @@ func newClient(timeout int, onceRequest bool) *http.Client {
 		MaxIdleConnsPerHost: idleconns,
 		MaxConnsPerHost:     idleconns,
 		TLSClientConfig:     &tls.Config{InsecureSkipVerify: true},
+                ForceAttemptHTTP2:     true,
 	}
 
 	return &http.Client{
